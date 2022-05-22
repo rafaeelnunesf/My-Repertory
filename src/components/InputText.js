@@ -9,7 +9,7 @@ export default function InputText({
   type,
 }) {
   return (
-    <FormControl>
+    <FormControl sx={{ width: "100%" }}>
       <InputLabel htmlFor={id}>{label}</InputLabel>
       <OutlinedInput
         type={type}
