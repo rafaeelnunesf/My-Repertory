@@ -37,7 +37,7 @@ export default function SignIn() {
       } = await api.signIn({ email, password });
       console.log(token);
       signIn(token);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       if (error.response) {
         console.log(error.response.data);
