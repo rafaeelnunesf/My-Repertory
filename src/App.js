@@ -1,16 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import { SignUp, SignIn } from "./pages/";
+import { RepertoryProvider } from "./contexts/repertoryContext";
+import { SignUp, SignIn, Home } from "./pages/";
 
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-        </Routes>
-      </BrowserRouter>
+      <RepertoryProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </RepertoryProvider>
     </AuthProvider>
   );
 }
