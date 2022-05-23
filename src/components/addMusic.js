@@ -13,6 +13,7 @@ import { Box } from "@mui/material";
 import api from "../services/api";
 import useAuth from "../hooks/useAuth.js";
 import useRepertory from "../hooks/useRepertory.js";
+import { useParams } from "react-router-dom";
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -21,6 +22,7 @@ export default function AddMusic({ open, setOpen }) {
   const [formData, setFormData] = useState({ name: "", author: "" });
   const { token } = useAuth();
   const { setPostNewRepertory, postNewRepertory } = useRepertory();
+  const { repertoryId } = useParams();
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -41,7 +43,7 @@ export default function AddMusic({ open, setOpen }) {
     }
 
     try {
-      await api.postMusic(formData, token);
+      await api.postMusic(formData, token, repertoryId);
       setOpen(false);
       setPostNewRepertory(!postNewRepertory);
     } catch (error) {

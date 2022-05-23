@@ -28,6 +28,19 @@ function getRepertories(token) {
 function getMusics(token, repertoryId) {
   return axios.get(`${BASE_URL}/repertory/${repertoryId}`, tokenConfig(token));
 }
+function postMusic(data, token, repertoryId) {
+  return axios.post(
+    `${BASE_URL}/repertory/${repertoryId}/addMusic`,
+    data,
+    tokenConfig(token)
+  );
+}
+function deleteMusic(token, repertoryId, musicId) {
+  return axios.delete(
+    `${BASE_URL}/repertory/${repertoryId}/musics/${musicId}`,
+    tokenConfig(token)
+  );
+}
 
 const api = {
   signIn,
@@ -35,6 +48,8 @@ const api = {
   postRepertory,
   getRepertories,
   getMusics,
+  postMusic,
+  deleteMusic,
 };
 
 export default api;
