@@ -10,7 +10,6 @@ import AddRepertory from "./AddRepertory";
 import AddIcon from "@mui/icons-material/Add";
 export default function SpeedDialTooltip({ repertories }) {
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState({});
   const [showRepertoryModal, setShowRepertoryModal] = useState(false);
 
   const handleClickOpen = () => {
