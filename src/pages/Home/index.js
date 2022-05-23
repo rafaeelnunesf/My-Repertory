@@ -48,7 +48,7 @@ export default function Home() {
       if (array[i] > maior) maior = array[i];
     return maior;
   }
-  if (repertories.length === 0) return <h1>Ola</h1>;
+
   return (
     <Container>
       <Header />
@@ -62,27 +62,31 @@ export default function Home() {
           height: "100%",
         }}
       >
-        {repertories.map(({ musics, id, name }) => {
-          const arr = [];
-          musics.forEach(({ lastTimePlayed }) => {
-            const date = dayjs(lastTimePlayed).format("DD-MM");
-            arr.push(date);
-          });
-          return (
-            <Accordion key={id}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography fontWeight="bold">{name}</Typography>
-              </AccordionSummary>
-              <AccordionDetails
-                onClick={() => navigate(`/repertories/${id}`)}
-                sx={{ cursor: "pointer" }}
-              >
-                <p>Songs: {musics.length}</p>
-                <p>Last time played: {bigger(arr)}</p>
-              </AccordionDetails>
-            </Accordion>
-          );
-        })}
+        {repertories.length === 0 ? (
+          <h1>No repertory registered yet</h1>
+        ) : (
+          repertories.map(({ musics, id, name }) => {
+            const arr = [];
+            musics.forEach(({ lastTimePlayed }) => {
+              const date = dayjs(lastTimePlayed).format("DD-MM");
+              arr.push(date);
+            });
+            return (
+              <Accordion key={id}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography fontWeight="bold">{name}</Typography>
+                </AccordionSummary>
+                <AccordionDetails
+                  onClick={() => navigate(`/repertories/${id}`)}
+                  sx={{ cursor: "pointer" }}
+                >
+                  <p>Songs: {musics.length}</p>
+                  <p>Last time played: {bigger(arr)}</p>
+                </AccordionDetails>
+              </Accordion>
+            );
+          })
+        )}
       </Box>
       <SpeedDialTooltip repertories={repertories}></SpeedDialTooltip>
     </Container>
