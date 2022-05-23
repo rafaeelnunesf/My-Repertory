@@ -25,12 +25,16 @@ function postRepertory(data, token) {
 function getRepertories(token) {
   return axios.get(`${BASE_URL}/repertory`, tokenConfig(token));
 }
+function getMusics(token, repertoryId) {
+  return axios.get(`${BASE_URL}/repertory/${repertoryId}`, tokenConfig(token));
+}
 
 const api = {
   signIn,
   signUp,
   postRepertory,
   getRepertories,
+  getMusics,
 };
 
 export default api;
