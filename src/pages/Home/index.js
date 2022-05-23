@@ -6,20 +6,22 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Container from "../../components/Container";
 import useAuth from "../../hooks/useAuth";
 import useRepertory from "../../hooks/useRepertory";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import api from "../../services/api";
-import SpeedDialTooltip from "../../components/SpeedDialTootip";
+import SpeedDialTooltip from "../../components/SpeedDialRepertory";
+import Header from "../../components/Header";
+import dayjs from "dayjs";
 export default function Home() {
   const { token } = useAuth();
   let navigate = useNavigate();
-  const { repertories, setRepertories } = useRepertory([]);
+  const { repertories, setRepertories, postNewRepertory } = useRepertory();
 
   useEffect(() => {
     if (!token) {
@@ -29,7 +31,7 @@ export default function Home() {
 
   useEffect(() => {
     getRepertories();
-  }, [repertories]);
+  }, [postNewRepertory]);
 
   async function getRepertories() {
     try {
@@ -49,36 +51,33 @@ export default function Home() {
   if (repertories.length === 0) return <h1>Ola</h1>;
   return (
     <Container>
+      <Header />
+      <Divider variant="middle" sx={{ borderWidth: "1px", width: "100%" }} />
       <Box
         sx={{
+          marginTop: "50px",
           width: "100%",
-          padding: "0 40px 0 0",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          maxHeight: "100%",
+          overflow: "scroll",
+          height: "100%",
         }}
       >
-        <Typography
-          variant="h5"
-          component="span"
-          sx={{ alignSelf: "flex-start", fontStyle: "italic" }}
-        >
-          Your Repertories
-        </Typography>
-        <ArrowBackIosNewIcon />
-      </Box>
-      <Divider variant="middle" sx={{ borderWidth: "1px", width: "100%" }} />
-      <Box sx={{ marginTop: "50px", width: "100%" }}>
-        {repertories.map((rep) => {
+        {repertories.map(({ musics, id, name }) => {
           const arr = [];
-          rep.musics.forEach(({ lastTimePlayed }) => arr.push(lastTimePlayed));
+          musics.forEach(({ lastTimePlayed }) => {
+            const date = dayjs(lastTimePlayed).format("DD-MM");
+            arr.push(date);
+          });
           return (
-            <Accordion sx={{ backgroundColor: "#FFF" }} key={rep.id}>
+            <Accordion key={id}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography fontWeight="bold">{rep.name}</Typography>
+                <Typography fontWeight="bold">{name}</Typography>
               </AccordionSummary>
-              <AccordionDetails onClick={() => console.log("ksjhdksdhg")}>
-                <p>Songs: {rep.musics.length}</p>
+              <AccordionDetails
+                onClick={() => navigate(`/repertories/${id}`)}
+                sx={{ cursor: "pointer" }}
+              >
+                <p>Songs: {musics.length}</p>
                 <p>Last time played: {bigger(arr)}</p>
               </AccordionDetails>
             </Accordion>
