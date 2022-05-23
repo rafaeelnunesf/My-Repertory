@@ -12,6 +12,7 @@ import InputText from "./InputText";
 import { Box } from "@mui/material";
 import api from "../services/api";
 import useAuth from "../hooks/useAuth.js";
+import useRepertory from "../hooks/useRepertory.js";
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -19,6 +20,7 @@ const Transition = forwardRef(function Transition(props, ref) {
 export default function AddRepertory({ open, setOpen }) {
   const [formData, setFormData] = useState({ name: "" });
   const { token } = useAuth();
+  const { setPostNewRepertory, postNewRepertory } = useRepertory();
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -38,6 +40,7 @@ export default function AddRepertory({ open, setOpen }) {
     try {
       await api.postRepertory(formData, token);
       setOpen(false);
+      setPostNewRepertory(!postNewRepertory);
     } catch (error) {
       console.log(error.message);
     }
