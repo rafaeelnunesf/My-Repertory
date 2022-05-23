@@ -9,7 +9,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Container from "../../components/Container";
 import Header from "../../components/Header";
 import useAuth from "../../hooks/useAuth";
@@ -20,15 +20,17 @@ import LyricsIcon from "@mui/icons-material/Lyrics";
 import QueueMusicIcon from "@mui/icons-material/QueueMusic";
 import dayjs from "dayjs";
 import SpeedDialTooltipMusic from "../../components/SpeedDialMusic";
+import useRepertory from "../../hooks/useRepertory";
 export default function Repertory() {
   const [musics, setMusics] = useState([]);
   const { token } = useAuth();
+  const { setPostNewRepertory, postNewRepertory, setMusic } = useRepertory();
   const { repertoryId } = useParams();
-  console.log(repertoryId);
+  let navigate = useNavigate();
 
   useEffect(() => {
     getMusics();
-  }, []);
+  }, [postNewRepertory]);
 
   async function getMusics() {
     try {
@@ -38,7 +40,20 @@ export default function Repertory() {
       console.log(error);
     }
   }
-  console.log(musics);
+
+  async function handleDelete(musicId) {
+    try {
+      await api.deleteMusic(token, repertoryId, musicId);
+      setPostNewRepertory(!postNewRepertory);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function handleSelectMusic(music) {
+    setMusic(music);
+    navigate(`music/${music.id}`);
+  }
   return (
     <Container>
       <Header />
@@ -52,31 +67,39 @@ export default function Repertory() {
                 secondaryAction={
                   <Box sx={{ display: "flex", gap: "5px" }}>
                     <Tooltip title="Tab">
-                      <IconButton edge="end" aria-label="tab">
+                      <IconButton
+                        edge="end"
+                        aria-label="tab"
+                        onClick={() => handleSelectMusic(music)}
+                      >
                         <QueueMusicIcon />
                       </IconButton>
                     </Tooltip>
-                    <Tooltip title="Lyrics">
+                    {/* <Tooltip title="Lyrics">
                       <IconButton edge="end" aria-label="lyrics">
                         <LyricsIcon />
                       </IconButton>
-                    </Tooltip>
+                    </Tooltip> */}
                     <Tooltip title="Delete">
-                      <IconButton edge="end" aria-label="delete">
+                      <IconButton
+                        edge="end"
+                        aria-label="delete"
+                        onClick={() => handleDelete(music.id)}
+                      >
                         <DeleteIcon />
                       </IconButton>
                     </Tooltip>
                   </Box>
                 }
               >
-                <ListItemAvatar>
+                {/*  <ListItemAvatar>
                   <Avatar>
                     <FolderIcon />
                   </Avatar>
-                </ListItemAvatar>
+                </ListItemAvatar> */}
                 <ListItemText
-                  primary={`${music.name} - ${music.author}`}
-                  secondary={`Last time played: ${date}`}
+                  primary={`${music.name} / ${music.author}`}
+                  secondary={`Last time played: ${date} Times played: ${timesplayed}`}
                 />
               </ListItem>
             );

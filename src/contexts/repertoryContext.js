@@ -5,6 +5,7 @@ export const RepertoryContext = createContext(null);
 export function RepertoryProvider({ children }) {
   const [repertories, setRepertories] = useState([]);
   const [postNewRepertory, setPostNewRepertory] = useState(false);
+  const [music, setMusic] = useState({});
 
   return (
     <RepertoryContext.Provider
@@ -13,6 +14,8 @@ export function RepertoryProvider({ children }) {
         setRepertories,
         postNewRepertory,
         setPostNewRepertory,
+        music,
+        setMusic,
       }}
     >
       {children}

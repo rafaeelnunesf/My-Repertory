@@ -41,6 +41,13 @@ function deleteMusic(token, repertoryId, musicId) {
     tokenConfig(token)
   );
 }
+function updateMusic(token, repertoryId, musicId) {
+  return axios.patch(
+    `${BASE_URL}/repertory/${repertoryId}/musics/${musicId}`,
+    {},
+    tokenConfig(token)
+  );
+}
 
 const api = {
   signIn,
@@ -50,6 +57,7 @@ const api = {
   getMusics,
   postMusic,
   deleteMusic,
+  updateMusic,
 };
 
 export default api;
