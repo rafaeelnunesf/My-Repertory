@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# [My Repertory](my-repertory.vercel.app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About this Project
 
-## Available Scripts
+The idea of the App is:
 
-In the project directory, you can run:
+_"An app where you can create and manage music repertoires that you want to keep fresh in your memory"._
 
-### `npm start`
+## Why?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project came about after a problem that I as a musician had been facing for a long time: I always ended up forgetting how to play some songs after a while without practicing, so I needed something to show me when was the last time I played a certain song, so I could practice again and keep it fresh in my memory
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is an authorial project in constant development, so, I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
 
-### `npm test`
+Email-me: rafaelnfsq@gmail.com
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Connect with me at [LinkedIn](https://www.linkedin.com/in/rafaeelnunesf).
 
-### `npm run build`
+## Functionalities
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Sign-Up and Sign-In. I decided to make this functionality so that different users create their own lists, and only he has access
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Create as many repertories as you want
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Add musics to a existing repertory
 
-### `npm run eject`
+- Mark a music as practiced
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Delete a music from your repertory
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Musics
+  - See when was the last time this was practiced
+  - See the lyrics and tabs of this song
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Built With
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React](https://reactjs.org/) - Front-End Framework
+- [React Router](https://reactrouter.com/) - Router
+- [Material UI](https://mui.com/) - React Components
+- [Styled-Components](https://www.styled-components.com/) - Styles
+- [Axios](https://github.com/axios/axios) - HTTP Client
+- [ESlint](https://eslint.org/) - Linter
+- [Prettier](https://prettier.io/) - Code Formatter
