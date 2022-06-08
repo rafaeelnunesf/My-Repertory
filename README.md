@@ -18,7 +18,7 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/rafaeelnunesf).
 
 ## Functionalities
 
-- Sign-Up and Sign-In. I decided to make this functionality so that different users create their own lists, and only he has access
+- Sign-Up and Sign-In. I decided to make this functionality so that different users create their own lists, and only this user has access
 
 - Create as many repertories as you want
 
