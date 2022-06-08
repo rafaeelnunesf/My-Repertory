@@ -4,20 +4,28 @@ import styled from "styled-components";
 
 export default function Tabs({ textHtml }) {
   console.log(textHtml);
-  return <StyledTabs>{parse(textHtml)}</StyledTabs>;
+  return <StyledTabs readOnly value={textHtml} disabled></StyledTabs>;
 }
 
-const StyledTabs = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-  align-items: center;
-  .tablatura {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 267px;
+const StyledTabs = styled.textarea`
+  overflow-x: scroll;
+  font-family: "Roboto Mono", "Courier New", "Courier", monospace;
+  text-align: justify;
+  width: 100%;
+  height: 80%;
+  border: 0;
+  white-space: pre;
+  resize: none;
+  &:focus {
+    border: none;
+  }
+  &:active {
+    border: none;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 450px) {
+    font-size: 10px;
   }
 `;
