@@ -32,8 +32,6 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/rafaeelnunesf).
   - See when was the last time this was practiced
   - See the lyrics and tabs of this song
 
-If you want to see in detail the whole part of how the backend was built, take a look at this [repository](https://github.com/rafaeelnunesf/API-My-Repertory)
-
 ## Built With
 
 - [React](https://reactjs.org/) - Front-End Framework
@@ -43,3 +41,6 @@ If you want to see in detail the whole part of how the backend was built, take a
 - [Axios](https://github.com/axios/axios) - HTTP Client
 - [ESlint](https://eslint.org/) - Linter
 - [Prettier](https://prettier.io/) - Code Formatter
+
+
+If you want to see in detail the whole part of how the backend was built, take a look at this [repository](https://github.com/rafaeelnunesf/API-My-Repertory)
