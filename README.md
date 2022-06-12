@@ -34,13 +34,16 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/rafaeelnunesf).
 
 ## Built With
 
-- [React](https://reactjs.org/) - Front-End Framework
-- [React Router](https://reactrouter.com/) - Router
-- [Material UI](https://mui.com/) - React Components
-- [Styled-Components](https://www.styled-components.com/) - Styles
+The following tools and frameworks were used in the construction of the project:<br>
+
 - [Axios](https://github.com/axios/axios) - HTTP Client
-- [ESlint](https://eslint.org/) - Linter
-- [Prettier](https://prettier.io/) - Code Formatter
+- [Material UI](https://mui.com/) - React Components
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 
 ## How to run in development
 
