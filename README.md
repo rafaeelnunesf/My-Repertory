@@ -42,5 +42,30 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/rafaeelnunesf).
 - [ESlint](https://eslint.org/) - Linter
 - [Prettier](https://prettier.io/) - Code Formatter
 
+## How to run in development
 
-If you want to see in detail the whole part of how the backend was built, take a look at this [repository](https://github.com/rafaeelnunesf/API-My-Repertory)
+1. Clone this repository
+
+2. Clone the backend repository available [here!](https://github.com/rafaeelnunesf/API-My-Repertory)
+3. Follow instructions to run backend available [here!](https://github.com/rafaeelnunesf/API-My-Repertory)
+4. Install dependencies
+
+```bash
+npm i
+```
+
+5. Run the front-end with
+
+```bash
+npm start
+```
+
+6. Finally access http://localhost:3000 on your favorite browser (unless it is Internet Explorer. In this case, review your life decisions)
+
+7. You can optionally build the project running
+
+```bash
+npm run build
+```
+
+If you want to see in detail the whole part of how the backend was built, take a look at this [repository!](https://github.com/rafaeelnunesf/API-My-Repertory)
